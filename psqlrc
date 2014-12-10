@@ -1,0 +1,12 @@
+-- Use (null) instead of the empty string
+\pset null '(null)'
+
+-- Pretty boxes
+\pset linestyle unicode
+\pset border 2
+
+-- Use extended mode when necessary
+\x auto
+
+-- Only show repeated commands once
+\set HISTCONTROL ignoredups
