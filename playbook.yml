@@ -1,0 +1,102 @@
+# vim:ft=ansible:
+
+- hosts: localhost
+  remote_user: jon
+  tasks:
+    - name: Sync dotfiles
+      file: src={{ playbook_dir }}/{{ item.src }} dest=~/{{ item.dest }} state={{ item.state|default('link') }}
+      with_items:
+        - {src: 'bashrc', dest: '.bashrc'}
+        - {src: 'gitconfig', dest: '.gitconfig'}
+        - {src: '', dest: '.pip', state: directory}
+        - {src: 'pip.conf', dest: '.pip/pip.conf'}
+        - {src: 'psqlrc', dest: '.psqlrc'}
+        - {src: 'pythonrc.py', dest: '.pythonrc.py'}
+        - {src: 'tmux.conf', dest: '.tmux.conf'}
+        - {src: '', dest: '.tmuxinator', state: directory}
+        - {src: 'tmuxinator/default.yml', dest: '.tmuxinator/default.yml'}
+        - {src: 'vim', dest: '.vim'}
+        - {src: 'vimrc', dest: '.vimrc'}
+        - {src: 'zshrc', dest: '.zshrc'}
+
+    - name: Add apt repositories
+      sudo: yes
+      apt_repository: repo='{{ item }}'
+      with_items:
+        - deb http://downloads.hipchat.com/linux/apt stable main
+        - deb http://linux.dropbox.com/ubuntu utopic main
+        - deb http://ppa.launchpad.net/kilian/f.lux/ubuntu trusty main
+        - ppa:gnome3-team/gnome3-staging
+        - ppa:keepassx/daily
+        - ppa:pidgin-developers/ppa
+        - ppa:synapse-core/testing
+        - ppa:ubuntuhandbook1/corebird
+        - ppa:ubuntu-mozilla-daily/ppa
+
+    - name: Install apt packages
+      sudo: yes
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - aptitude
+        - build-essential
+        - corebird
+        - curl
+        - dropbox
+        - firefox-trunk
+        - fluxgui
+        - git
+        - hipchat
+        - keepassx
+        - libreadline-dev
+        - libsqlite3-dev
+        - liferea
+        - mercurial
+        - pidgin
+        - postgresql-server-dev-all
+        - redis-server
+        - synapse
+        - thunderbird
+        - tmux
+        - vim-gnome
+        - zsh
+
+    - name: Install homebrew
+      git: repo=https://github.com/Homebrew/linuxbrew.git dest=~/.linuxbrew
+
+    - name: Install homebrew packages
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - rbenv
+        - ruby-build
+        - pyenv
+
+    - name: Install ruby
+      command: creates=~/.rbenv/versions/{{ item }} rbenv install {{ item }}
+      with_items:
+        - 2.1.5
+
+    - name: Install python
+      command: creates=~/.pyenv/versions/{{ item }} pyenv install {{ item }}
+      with_items:
+        - 3.4.2
+        - 2.7.9
+
+    - name: Install vundle
+      git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+
+    - name: Install vim plugins
+      command: creates=~/.vim/bundle/ctrlp.vim vim +PluginInstall +qall
+
+    - name: Install oh-my-zsh
+      git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+    - name: Install oh-my-zsh plugins and themes
+      file: src={{ playbook_dir }}/{{ item.src }} dest=~/.oh-my-zsh/custom/{{ item.dest }} state={{ item.state|default('link') }}
+      with_items:
+        - {src: 'oh-my-zsh-custom/plugins/tmux', dest: 'plugins/tmux'}
+        - {src: '', dest: 'themes', state: 'directory'}
+        - {src: 'oh-my-zsh-custom/themes/powerline.zsh-theme', dest: 'themes/powerline.zsh-theme'}
+
+    - name: Set default shell to zsh
+      sudo: yes
+      user: name={{ ansible_ssh_user }} shell=/usr/bin/zsh

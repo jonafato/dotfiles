@@ -8,9 +8,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Python interpreter niceties
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
-# for the rare times i need ruby
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # vi everywhere!
 bindkey -v
@@ -73,8 +72,13 @@ plugins=(git pip tmux tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:/opt/nimrod/bin
+export PATH=$PATH:/opt/nimrod/bin  # nim-lang
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH=$PATH:$HOME/.linuxbrew/bin  # brew
+export MANPATH=$MANPATH:$HOME/.linuxbrew/share/man  # brew manpages
+export INFOPATH=$INFOPATH:$HOME/.linuxbrew/share/info  # other brew stuff
+
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.pyenv/bin:$PATH
+
+export PATH=$PATH:/usr/local/heroku/bin  # heroku toolbelt

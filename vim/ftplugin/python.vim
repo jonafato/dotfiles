@@ -1,5 +1,6 @@
 setlocal omnifunc=jedi#completions
 setlocal textwidth=80
+setlocal colorcolumn=80  " A good rule of thumb for code width
 
 let g:jedi#popup_on_dot = 0
 let g:jedi#auto_vim_configuration = 0

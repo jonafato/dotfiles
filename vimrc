@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'chase/vim-ansible-yaml'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -16,6 +17,7 @@ Plugin 'gmarik/Vundle.vim' " required!
 Plugin 'godlygeek/tabular'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'lepture/vim-jinja'
 Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'othree/html5.vim'
@@ -40,6 +42,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown  " Properly identify m
 map / <Plug>(incsearch-forward)
 " Replace backward search with backward incsearch
 map ? <Plug>(incsearch-backward)
+let g:incsearch#auto_nohlsearch=1 " Turn off result highlighting after moving cursor
 
 let g:SuperTabDefaultCompletionType="context"
 
@@ -76,8 +79,7 @@ let g:instant_markdown_slow=1  " Only have instant markdown render and refresh o
 syntax on  " Syntax highlighting
 set bg=light  " Light background
 let g:solarized_termtrans=1
-colorscheme solarized  " Solarized colors!
-set colorcolumn=80  " A good rule of thumb for code width
+silent! colorscheme solarized  " Solarized colors (if available, ignored otherwise)!
 set tabstop=4  " Tabs are 4 spaces wide
 set shiftwidth=4  " Shifting 4 spaces at a time
 set smarttab
