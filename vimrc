@@ -1,37 +1,33 @@
 set nocompatible              " be iMproved
-filetype off                  " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-" github repositories
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'gregsexton/MatchTag'
-Plugin 'gmarik/Vundle.vim' " required!
-Plugin 'godlygeek/tabular'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'lepture/vim-jinja'
-Plugin 'mhinz/vim-startify'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'othree/html5.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/TaskList.vim'
-Plugin 'wting/rust.vim'
-Plugin 'zah/nimrod.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'chase/vim-ansible-yaml'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
+Plug 'gregsexton/MatchTag'
+Plug 'godlygeek/tabular'
+Plug 'haya14busa/incsearch.vim'
+Plug 'heavenshell/vim-pydocstring'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'lepture/vim-jinja'
+Plug 'mhinz/vim-startify'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'othree/html5.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'suan/vim-instant-markdown'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'wting/rust.vim'
+Plug 'zah/nimrod.vim'
 
-call vundle#end()
-filetype plugin indent on  " required!
+call plug#end()
 
 " Use , instead of \
 let mapleader=","
@@ -80,6 +76,8 @@ syntax on  " Syntax highlighting
 set bg=light  " Light background
 let g:solarized_termtrans=1
 silent! colorscheme solarized  " Solarized colors (if available, ignored otherwise)!
+
+set backspace=indent,eol,start
 set tabstop=4  " Tabs are 4 spaces wide
 set shiftwidth=4  " Shifting 4 spaces at a time
 set smarttab

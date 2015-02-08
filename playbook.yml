@@ -16,7 +16,9 @@
         - {src: '', dest: '.tmuxinator', state: directory}
         - {src: 'tmuxinator/default.yml', dest: '.tmuxinator/default.yml'}
         - {src: 'vim', dest: '.vim'}
+        - {src: 'vim', dest: '.nvim'}
         - {src: 'vimrc', dest: '.vimrc'}
+        - {src: 'vimrc', dest: '.nvimrc'}
         - {src: 'zshrc', dest: '.zshrc'}
 
     - name: Add apt repositories
@@ -28,6 +30,8 @@
         - deb http://ppa.launchpad.net/kilian/f.lux/ubuntu trusty main
         - ppa:gnome3-team/gnome3-staging
         - ppa:keepassx/daily
+        - ppa:neovim-ppa/unstable
+        - ppa:nilarimogard/webupd8
         - ppa:pidgin-developers/ppa
         - ppa:synapse-core/testing
         - ppa:ubuntuhandbook1/corebird
@@ -37,6 +41,7 @@
       sudo: yes
       apt: pkg={{ item }} state=latest
       with_items:
+        - albert
         - aptitude
         - build-essential
         - corebird
@@ -46,18 +51,22 @@
         - fluxgui
         - git
         - hipchat
+        - htop
         - keepassx
         - libreadline-dev
         - libsqlite3-dev
         - liferea
         - mercurial
+        - neovim
         - pidgin
         - postgresql-server-dev-all
         - redis-server
         - synapse
         - thunderbird
         - tmux
+        - tree
         - vim-gnome
+        - whois
         - zsh
 
     - name: Install homebrew
@@ -75,17 +84,22 @@
       with_items:
         - 2.1.5
 
+    - name: Install gems
+      gem: name={{ item }} state=latest
+      with_items:
+        - tmuxinator
+
     - name: Install python
       command: creates=~/.pyenv/versions/{{ item }} pyenv install {{ item }}
       with_items:
         - 3.4.2
         - 2.7.9
 
-    - name: Install vundle
-      git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+    - name: Install vim-plug
+      get_url: url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim dest={{ playbook_dir }}/vim/autoload/plug.vim
 
     - name: Install vim plugins
-      command: creates=~/.vim/bundle/ctrlp.vim vim +PluginInstall +qall
+      command: creates={{ playbook_dir }}/vim/bundle vim +PlugInstall +qall
 
     - name: Install oh-my-zsh
       git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
