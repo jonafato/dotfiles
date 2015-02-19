@@ -35,6 +35,7 @@
         - ppa:pidgin-developers/ppa
         - ppa:synapse-core/testing
         - ppa:ubuntuhandbook1/corebird
+        - ppa:ubuntuhandbook1/liferea-unstable
         - ppa:ubuntu-mozilla-daily/ppa
 
     - name: Install apt packages

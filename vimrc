@@ -15,6 +15,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'lepture/vim-jinja'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/html5.vim'
@@ -71,6 +73,12 @@ let g:airline_theme="solarized"  " Solarized colors!
 let g:airline#extensions#tabline#enabled=1  " Airline tabline
 
 let g:instant_markdown_slow=1  " Only have instant markdown render and refresh on save
+
+let g:gist_clip_command='xclip -selection clipboard'  " For copying on Linux
+let g:gist_detect_filetype=1  " Autodetect filetype
+let g:gist_open_browser_after_post=1  " To see the gist once it's been posted
+let g:gist_show_privates=1  " Show private gists in list
+let g:gist_post_private=1  " Use private gists by default (just in case)
 
 syntax on  " Syntax highlighting
 set bg=light  " Light background
