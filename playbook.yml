@@ -54,20 +54,27 @@
         - hipchat
         - htop
         - keepassx
+        - libjpeg-dev
         - libreadline-dev
         - libsqlite3-dev
         - liferea
         - mercurial
+        - m4
         - neovim
         - pidgin
+        - pidgin-otr
+        - python-dev
         - postgresql-server-dev-all
         - redis-server
-        - synapse
+        - silversearcher-ag
         - thunderbird
         - tmux
         - tree
+        - vagrant
         - vim-gnome
+        - virtualbox
         - whois
+        - xclip
         - zsh
 
     - name: Install homebrew
@@ -86,6 +93,7 @@
         - 2.1.5
 
     - name: Install gems
+      sudo: yes
       gem: name={{ item }} state=latest
       with_items:
         - tmuxinator

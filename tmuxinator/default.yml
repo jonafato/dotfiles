@@ -26,5 +26,5 @@ windows:
         - 
         - 
         - 
-  - editor: vim
+  - editor: nvim
   - shell:

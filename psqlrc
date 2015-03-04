@@ -1,3 +1,5 @@
+\set QUIET 1
+
 -- Use (null) instead of the empty string
 \pset null '(null)'
 
@@ -10,3 +12,5 @@
 
 -- Only show repeated commands once
 \set HISTCONTROL ignoredups
+
+\unset QUIET
