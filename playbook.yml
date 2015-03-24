@@ -19,6 +19,7 @@
         - {src: 'vim', dest: '.nvim'}
         - {src: 'vimrc', dest: '.vimrc'}
         - {src: 'vimrc', dest: '.nvimrc'}
+        - {src: 'virtualenv/postmkvirtualenv', dest: '.virtualenvs/postmkvirtualenv'}
         - {src: 'zshrc', dest: '.zshrc'}
 
     - name: Add apt repositories
