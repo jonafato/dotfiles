@@ -1,6 +1,8 @@
 vim/autoload
 vim/bundle
+vim/session
 vim/spell
+vim/view
 
 # Created by https://www.gitignore.io
 

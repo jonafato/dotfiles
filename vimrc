@@ -81,8 +81,6 @@ let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 let g:ctrlp_user_command='ag %s --files-with-matches --nocolor -g ""'
 let g:ctrlp_use_caching=0
 
-let g:rainbow_active=1
-
 set laststatus=2  " Always show airline
 set noshowmode
 let g:airline_powerline_fonts=1  " Use powerline fonts with airline

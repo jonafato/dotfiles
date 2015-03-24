@@ -1,5 +1,5 @@
 setlocal omnifunc=jedi#completions
-setlocal textwidth=80
+setlocal textwidth=79
 setlocal colorcolumn=80  " A good rule of thumb for code width
 
 let g:jedi#popup_on_dot = 0

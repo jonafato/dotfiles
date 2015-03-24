@@ -34,6 +34,7 @@
         - ppa:neovim-ppa/unstable
         - ppa:nilarimogard/webupd8
         - ppa:pidgin-developers/ppa
+        - ppa:rael-gc/scudcloud
         - ppa:synapse-core/testing
         - ppa:ubuntuhandbook1/corebird
         - ppa:ubuntuhandbook1/liferea-unstable
@@ -58,6 +59,8 @@
         - libjpeg-dev
         - libreadline-dev
         - libsqlite3-dev
+        - libxml2-dev
+        - libxslt1-dev
         - liferea
         - mercurial
         - m4
@@ -67,6 +70,7 @@
         - python-dev
         - postgresql-server-dev-all
         - redis-server
+        - scudcloud
         - silversearcher-ag
         - thunderbird
         - tmux
