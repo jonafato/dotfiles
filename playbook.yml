@@ -93,6 +93,7 @@
         - rbenv
         - ruby-build
         - pyenv
+        - pyenv-virtualenvwrapper
 
     - name: Install ruby
       command: creates=~/.rbenv/versions/{{ item }} rbenv install {{ item }}

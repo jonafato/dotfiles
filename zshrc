@@ -1,12 +1,12 @@
 export EDITOR='vim'
 export SHELL=/usr/bin/zsh
 
-# virtualenv and wrapper
-# export WORKON_HOME=~/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
+# virtualenvwrapper dir
+export WORKON_HOME=~/.virtualenvs
 
 # Python interpreter niceties
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 export PATH=$PATH:/opt/nimrod/bin  # nim-lang
 
