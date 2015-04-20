@@ -8,6 +8,7 @@
       with_items:
         - {src: 'bashrc', dest: '.bashrc'}
         - {src: 'gitconfig', dest: '.gitconfig'}
+        - {src: 'gitignore', dest: '.gitignore'}
         - {src: '', dest: '.pip', state: directory}
         - {src: 'pip.conf', dest: '.pip/pip.conf'}
         - {src: 'psqlrc', dest: '.psqlrc'}
@@ -56,6 +57,7 @@
         - hipchat
         - htop
         - keepassx
+        - libbz2-dev
         - libjpeg-dev
         - libreadline-dev
         - libsqlite3-dev

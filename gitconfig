@@ -4,3 +4,7 @@
 [core]
 [github]
 	user = jonafato
+[merge]
+	tool = vimdiff
+[core]
+	excludesfile = /home/jonafato/.gitignore

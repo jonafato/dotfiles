@@ -28,7 +28,7 @@ Plug 'scrooloose/syntastic'  " Work with external syntax checkers
 Plug 'suan/vim-instant-markdown'  " Live in-browser previews of markdown files
 Plug 'tpope/vim-fugitive'  " Git support
 Plug 'vim-scripts/C64.vim'  " For nostalgia
-Plug 'vim-scripts/SearchComplete'  " Tab complete search terms
+" Plug 'vim-scripts/SearchComplete'  " Tab complete search terms
 Plug 'vim-scripts/Tabmerge'  " Move tabs to splits
 Plug 'vim-scripts/TaskList.vim'  " Find todos scattered throughout code
 Plug 'wting/rust.vim'  " Rust syntax support
@@ -41,11 +41,12 @@ let mapleader=","
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown  " Properly identify markdown files
 
+set hlsearch
+let g:incsearch#auto_nohlsearch=1 " Turn off result highlighting after moving cursor
 " Replace search with incsearch
 map / <Plug>(incsearch-forward)
 " Replace backward search with backward incsearch
 map ? <Plug>(incsearch-backward)
-let g:incsearch#auto_nohlsearch=1 " Turn off result highlighting after moving cursor
 
 let g:SuperTabDefaultCompletionType="context"
 

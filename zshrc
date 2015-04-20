@@ -2,14 +2,26 @@ export EDITOR='vim'
 export SHELL=/usr/bin/zsh
 
 # virtualenv and wrapper
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Python interpreter niceties
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 
+export PATH=$PATH:/opt/nimrod/bin  # nim-lang
+
+export PATH=$PATH:$HOME/.linuxbrew/bin  # brew
+export MANPATH=$MANPATH:$HOME/.linuxbrew/share/man  # brew manpages
+export INFOPATH=$INFOPATH:$HOME/.linuxbrew/share/info  # other brew stuff
+
+export PATH=$PATH:/usr/local/heroku/bin  # heroku toolbelt
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+    pyenv virtualenvwrapper_lazy
+fi
 
 # vi everywhere!
 bindkey -v
@@ -71,14 +83,3 @@ export TERM=xterm-256color
 plugins=(git pip tmux tmuxinator vagrant)
 
 source $ZSH/oh-my-zsh.sh
-
-export PATH=$PATH:/opt/nimrod/bin  # nim-lang
-
-export PATH=$PATH:$HOME/.linuxbrew/bin  # brew
-export MANPATH=$MANPATH:$HOME/.linuxbrew/share/man  # brew manpages
-export INFOPATH=$INFOPATH:$HOME/.linuxbrew/share/info  # other brew stuff
-
-export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=$HOME/.pyenv/bin:$PATH
-
-export PATH=$PATH:/usr/local/heroku/bin  # heroku toolbelt
