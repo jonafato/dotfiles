@@ -3,18 +3,18 @@ set nocompatible              " be iMproved
 call plug#begin('~/.vim/bundle')
 
 Plug 'altercation/vim-colors-solarized'  " Solarized, for happy eyes
-Plug 'ashisha/image.vim'  " Don't blow up on images
+Plug 'ashisha/image.vim', {'for': ['jpg', 'jpeg', 'png']}  " Don't blow up on images
 Plug 'bling/vim-airline'  " A light, vim-only powerline-like
 Plug 'ConradIrwin/vim-bracketed-paste'  " Never :set paste again!
 Plug 'chase/vim-ansible-yaml'  " Better handling of yaml for ansible playbooks
 Plug 'ctrlpvim/ctrlp.vim'  " Fuzzymatching
-Plug 'davidhalter/jedi-vim'  " Better python tooling
+Plug 'davidhalter/jedi-vim', {'for': 'python'}  " Better python tooling
 Plug 'ervandew/supertab'  " Tab completion
 Plug 'gregsexton/MatchTag'  " Highlight matching html tags
 Plug 'godlygeek/tabular'  " For handling tabular data
 Plug 'haya14busa/incsearch.vim'  " Better incremental search options
 Plug 'heavenshell/vim-pydocstring'  " Autogenerate python doctrings
-Plug 'jmcantrell/vim-virtualenv'  " Find virtualenv things inside python
+Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}  " Find virtualenv things inside python
 Plug 'lepture/vim-jinja'  " Jinja syntax
 Plug 'mattn/gist-vim'  " Manage gists from within vim
 Plug 'mattn/webapi-vim'  " Required by gist-vim
@@ -28,9 +28,9 @@ Plug 'scrooloose/syntastic'  " Work with external syntax checkers
 Plug 'suan/vim-instant-markdown'  " Live in-browser previews of markdown files
 Plug 'tpope/vim-fugitive'  " Git support
 Plug 'vim-scripts/C64.vim'  " For nostalgia
-" Plug 'vim-scripts/SearchComplete'  " Tab complete search terms
 Plug 'vim-scripts/Tabmerge'  " Move tabs to splits
 Plug 'vim-scripts/TaskList.vim'  " Find todos scattered throughout code
+Plug 'rhysd/committia.vim'  " Better git commits
 Plug 'wting/rust.vim'  " Rust syntax support
 Plug 'zah/nimrod.vim'  " Nim syntax support
 
